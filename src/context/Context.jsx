@@ -76,7 +76,7 @@ const ContextProvider = (props) =>{
   };
     return (
         <Context.Provider value = {contextValue}>
-            {props.children};
+            {props.children}
             
         </Context.Provider>
     );
