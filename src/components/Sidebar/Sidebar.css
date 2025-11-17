@@ -15,16 +15,20 @@
 	margin-left: 13px;
 	cursor: pointer;
 }
+.plus{
+    height: 26px;
+}
 .newChat{
     margin-top: 40px;
     display: inline-flex;
     align-items: center;
     gap: 10px;
     padding: 10px 15px;
-    background-color: #e6eaf1;
+    background-color: #09c1f9e1;
+    border-color: #8e6afc;
     border-radius: 50px;
     font-size: 14px;
-    color: grey;
+    color: rgb(63, 20, 190);
     cursor: pointer;
     margin-left: 1px;
    }

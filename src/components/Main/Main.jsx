@@ -29,19 +29,31 @@ return (
                 <p>How can I help you ?</p>
               </div>
               <div className="cards">
-                <div className="card">
+                <div className="card" onClick={() => {
+                  setInput("Best books to learn coding / AI / business / productivity?");
+                  onSent();
+                  }}>
                   <p>Best books to learn coding / AI / business / productivity?</p>
                   <img src={assets.bulb_icon} />
                 </div>
-                <div className="card">
-                  <p>Help me debug this problem</p>
+                <div className="card" onClick={() => {
+                  setInput("Which is best programming language to start");
+                  onSent();
+                  }}>
+                  <p>Which is best programming language to start</p>
                   <img src={assets.code_icon} />
                 </div>
-                <div className="card">
+                <div className="card" onClick={() => {
+                  setInput("Give me a roadmap to become a full-stack developer / data scientist.");
+                  onSent();
+                  }}>
                   <p>Give me a roadmap to become a full-stack developer / data scientist.</p>
                   <img src={assets.compass_icon} />
                 </div>
-                <div className="card">
+                <div className="card" onClick={() => {
+                  setInput("Help with physics/chemistry homework problems.");
+                  onSent();
+                  }}>
                   <p>Help with physics/chemistry homework problems.</p>
                   <img src={assets.message_icon} />
                 </div>
@@ -57,6 +69,7 @@ return (
 								<div className="loader">
 									<hr />
 									<hr />
+                  <hr />
 								</div>
 							) : (
 								<p dangerouslySetInnerHTML={{ __html: resultData }}></p>
@@ -66,7 +79,15 @@ return (
                }
               <div className="main-bottom">
                 <div className="search-box">
-                  <input onChange = {(e) => setInput(e.target.value)} value={input} type="text" placeholder="Ask Anything..." />
+                  <input onChange = {(e) => setInput(e.target.value)} value={input} type="text" 
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                     e.preventDefault();
+                      if (input.trim() !== "") {
+                       onSent();
+                      }
+                  }}}
+                  placeholder="Ask Anything..." />
                   <div>
                   <img src={assets.gallery_icon} alt="" />
                   <img src={assets.mic_icon} alt="" />

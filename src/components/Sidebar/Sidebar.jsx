@@ -20,7 +20,7 @@ const Sidebar = () => {
       <div className="top">
         <img onClick ={ChangedSidebar} className = 'menuIcon' src ={assets.menu_icon} alt = "Menu-Icon" />
      <div onClick={()=>{newChat()}} className="newChat">
-        <img src = {assets.plus_icon} alt = "Plus-Icon" />
+        <img src = {assets.plus_icon} alt = "Plus-Icon" className="plus" />
        {expand ? <p>New Chat</p> : null}
      </div>
      {expand ?

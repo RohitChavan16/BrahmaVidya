@@ -24,17 +24,23 @@ const ContextProvider = (props) =>{
     }
 
     const onSent = async (prompt) =>{
+		if (!input || input.trim() === "") {
+         alert("Enter a valid message!");
+         return;
+        }
 		setResultData("");
 		setLoading(true);
 		setShowResults(true);
-		 let response;
+		let input1 = input;
+		setInput("");
+		let response;
         if(prompt !== undefined){
             response = await runChat(prompt);
             setRecentPrompt(prompt)
         }else{
-            setPrevPrompts(prev=>[...prev,input]);
-            setRecentPrompt(input);
-            response=await runChat(input);
+            setPrevPrompts(prev=>[...prev,input1]);
+            setRecentPrompt(input1);
+            response=await runChat(input1);
         }
 	   let responseArray = response.split("**");
             let newResponse = "";
@@ -52,7 +58,7 @@ const ContextProvider = (props) =>{
 				delayPara(i, nextWord + "");
 			}
 	   setLoading(false);
-	   setInput("");
+	  
     }
     
   const contextValue = {
